@@ -1,13 +1,11 @@
 
 import Head from "next/head";
-import Image from "next/image";
-import { PT_Sans } from "next/font/google";
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
 import {z} from 'zod'
 
 
-export default function Dossier() {
+export default function Dossier({data}:{data:string}) {
 
   const webSchema = z.string().url().catch('https://weareleadgrowth.com')
   const linkedinSchema = z.string().url().catch('https://linkedin.com')
@@ -142,3 +140,8 @@ export default function Dossier() {
   );
 }
 
+// This gets called on every request
+export async function getServerSideProps() {
+  console.log("server")
+  return {props: {data:"hola"}}
+}
