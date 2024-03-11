@@ -14,7 +14,11 @@
   --coral: #FA874B;
   --bright-pink: #FA5F69;
   --tropical-indigo: #8C7DFA;
-  font-family: "PT Sans", sans-serif
+  font-family: "PT Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
 }
 
 .dossier>div {
