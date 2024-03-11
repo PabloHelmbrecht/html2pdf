@@ -1,107 +1,223 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+.dossier {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  background: #1E87FF;
+  gap: 0;
+  --white: white;
+  --anti-flash: #F3F5F6;
+  --azure: #1E87FF;
+  --yale-blue: #003282;
+  --eerie-black: #1E2328;
+  --emerald: #28D296;
+  --saffron: #FAC346;
+  --coral: #FA874B;
+  --bright-pink: #FA5F69;
+  --tropical-indigo: #8C7DFA;
+  font-family: "PT Sans", sans-serif
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
-
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
-
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+.dossier>div {
+  width: 100%;
+  padding-left: 4.7rem;
+  padding-right: 4.7rem;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.membrete {
+  background: linear-gradient(90deg,
+      var(--yale-blue) -12.04%,
+      #1E87FF 121.47%);
+  height: 1.25rem;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.company-data {
+  background-color: var(--anti-flash);
+  min-height: 37rem;
+  padding-top: 4.7rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.prospect-data {
+  background: var(--yale-blue);
+  min-height: 30.28rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.company,
+.prospect-name {
+  font-family: Poppins;
+  font-weight: bold;
+  color: var(--eerie-black);
+  font-size: 2.4rem;
+  line-height: 130%;
+  text-wrap: balance;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.prospect-name {
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.time,
+.role {
+  background: #1E87FF;
+  color: var(--white);
+  font-family: Poppins;
+  font-size: 1.2rem;
+  width: fit-content;
+  padding: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+}
+
+.company-data-top,
+.prospect-data-top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.company-data-top-left,
+.prospect-data-top-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  max-width: 25rem;
+  gap: 1.5rem;
+}
+
+.company-data-top-right,
+.prospect-data-top-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 30rem;
+  gap: 1.5rem;
+}
+
+.linkedin-company,
+.website,
+.linkedin-prospect {
+  background: #1E87FF;
+  color: var(--white);
+  font-size: 1.2rem;
+  width: 14rem;
+  padding: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: left;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+}
+
+.linkedin-company {
+  background: var(--yale-blue);
+}
+
+.company-data-top-right svg,
+.prospect-data-top-right svg {
+  aspect-ratio: 1;
+  height: 1.5rem;
+}
+
+.company-info,
+.prospect-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.company-title-wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  font-family: Poppins;
+  font-weight: bold;
+  color: var(--eerie-black);
+  font-size: 2rem;
+  line-height: 130%;
+  text-wrap: balance;
+  gap: 1rem;
+}
+
+.company-title-line {
+  background-color: #1E87FF;
+  height: 0.6rem;
+  width: 70%;
+}
+
+.firmographic,
+.contact-info {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  gap: 2rem;
+}
+
+.firmo-item,
+.contact-item {
+  background: var(--white);
+  color: var(--eerie-black);
+  font-size: 1.2rem;
+  padding: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: left;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+}
+
+.firmo-item>svg,
+.contact-item>svg {
+  aspect-ratio: 1;
+  height: 1.5rem;
+  color: red;
+}
+
+.company-description,
+.prospect-description {
+  background: var(--white);
+  color: var(--eerie-black);
+  font-size: 1.2rem;
+  width: fill-container;
+  min-height: 4rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  justify-content: left;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+  text-wrap: pretty;
+}
+
+.company-description>span,
+.prospect-description>span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--yale-blue)
+}
+
+.sm-txt>span {
+  font-weight: bold;
+  color: var(--yale-blue)
 }
