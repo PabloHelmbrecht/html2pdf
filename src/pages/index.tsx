@@ -1,28 +1,21 @@
-'use client'
 import Head from "next/head";
 import Image from "next/image";
 import { PT_Sans } from "next/font/google";
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link";
-import {z} from 'zod'
+import { z } from 'zod'
 
 
-export default function Home() {
+export default function Dossier({ companyName, meetingDate, website, linkedinCompany }: { companyName: any, meetingDate:any, website:any, linkedinCompany:any }) {
 
   const webSchema = z.string().url().catch('https://weareleadgrowth.com')
   const linkedinSchema = z.string().url().catch('https://linkedin.com')
-  const searchParams = useSearchParams()
-
-  const companyName = searchParams.get('companyName')
-  const meetingDate = searchParams.get('meetingDate')
-  const website = searchParams.get('website')
-  const linkedinCompany = searchParams.get('linkedinCompany')
 
 
   return (
     <>
       <Head>
-        <title>{`Dossier ${companyName??"Nombre de empresa"}`}</title>
+        <title>{`Dossier ${companyName ?? "Nombre de empresa"}`}</title>
         <meta name="description" content="Lead Growth" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -38,8 +31,8 @@ export default function Home() {
         <div className="company-data">
           <div className="company-data-top">
             <div className="company-data-top-left">
-              <div className="company">{companyName??"Nombre de empresa"}</div>
-              <div className="time">{meetingDate??"DD/MM/YYYY ##:##pm"}</div>
+              <div className="company">{companyName ?? "Nombre de empresa"}</div>
+              <div className="time">{meetingDate ?? "DD/MM/YYYY ##:##pm"}</div>
             </div>
             <div className="company-data-top-right">
               <Link className="website" href={webSchema.parse(website)}>
@@ -140,4 +133,28 @@ export default function Home() {
 
     </>
   );
+}
+
+
+// This gets called on every request
+export async function getServerSideProps() {
+
+
+  const searchParams = useSearchParams()
+
+  const companyName = searchParams.get('companyName')
+  const meetingDate = searchParams.get('meetingDate')
+  const website = searchParams.get('website')
+  const linkedinCompany = searchParams.get('linkedinCompany')
+
+
+  // Pass data to the page via props
+  return {
+    props: {
+      companyName,
+      meetingDate,
+      website,
+      linkedinCompany
+    }
+  }
 }
